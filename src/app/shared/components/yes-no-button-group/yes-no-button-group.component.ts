@@ -57,5 +57,5 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
 enum YesNoButtonGroupOptions {
   YES = 'yes',
-  NO = 'no'
+  NO = 'no',
 }

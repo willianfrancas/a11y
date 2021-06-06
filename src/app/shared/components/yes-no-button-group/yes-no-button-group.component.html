@@ -1,14 +1,16 @@
-<div class="button-group" role="radiogroup" [attr.aria-labelledby]="id">
+<div app-keyboard class="button-group" role="radiogroup" [attr.aria-labelledby]="id">
 
   <label [attr.id]="id" class="label">{{label}}</label>
 
-  <button class="button button-yes" type="button" (click)="activate(options.YES)"
-    [class.button-pressed]="value === options.YES"
+  <button app-keyboard-item (focused)="activate(options.YES)" class="button button-yes" type="button"
+    (click)="activate(options.YES)" [class.button-pressed]="value === options.YES" role="radio"
+    [attr.aria-checked]="value === options.YES" [attr.tabindex]="value === options.YES || !value ? 0 : -1">
+    Yes
+  </button>
 
-    role="radio" [attr.aria-checked]="value === options.YES">Yes</button>
-
-  <button class="button button-no" type="button" (click)="activate(options.NO)"
-    [class.button-pressed]="value === options.NO"
-
-    role="radio" [attr.aria-checked]="value === options.NO">No</button>
+  <button app-keyboard-item (focused)="activate(options.NO)" class="button button-no" type="button"
+    (click)="activate(options.NO)" [class.button-pressed]="value === options.NO" role="radio"
+    [attr.aria-checked]="value === options.NO" [attr.tabindex]="value === options.NO ? 0 : -1">
+    No
+  </button>
 </div>
