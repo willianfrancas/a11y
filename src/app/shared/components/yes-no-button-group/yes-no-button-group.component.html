@@ -4,13 +4,15 @@
 
   <button app-keyboard-item (focused)="activate(options.YES)" class="button button-yes" type="button"
     (click)="activate(options.YES)" [class.button-pressed]="value === options.YES" role="radio"
-    [attr.aria-checked]="value === options.YES" [attr.tabindex]="value === options.YES || !value ? 0 : -1">
+    [attr.aria-checked]="value === options.YES" [attr.tabindex]="value === options.YES || !value ? 0 : -1"
+    [attr.disabled]="disabled ? disabled : null">
     Yes
   </button>
 
   <button app-keyboard-item (focused)="activate(options.NO)" class="button button-no" type="button"
     (click)="activate(options.NO)" [class.button-pressed]="value === options.NO" role="radio"
-    [attr.aria-checked]="value === options.NO" [attr.tabindex]="value === options.NO ? 0 : -1">
+    [attr.aria-checked]="value === options.NO" [attr.tabindex]="value === options.NO ? 0 : -1"
+    [attr.disabled]="disabled ? disabled : null">
     No
   </button>
 </div>
