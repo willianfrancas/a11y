@@ -1,4 +1,5 @@
 import { Component, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { YesNoButtonGroupComponent } from './shared/components/yes-no-button-group/yes-no-button-group.component';
 
 @Component({
@@ -7,13 +8,22 @@ import { YesNoButtonGroupComponent } from './shared/components/yes-no-button-gro
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'a11y-p1';
 
   @Output() YesOrNoValue: YesNoButtonGroupComponent;
 
-  public yesOrNoAnswer = 'no';
+  public form: FormGroup = null;
 
-  ngOnChange() {
-    console.log(this.yesOrNoAnswer,this.YesOrNoValue);
+  title = 'a11y-p1';
+
+
+  constructor(private formBuilder: FormBuilder) {
+
+    this.form = formBuilder.group({
+      yesOrNoAnswer: [null],
+    });
+  }
+
+  public submit(): void {
+    console.log(this.form.value);
   }
 }
